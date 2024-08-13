@@ -1,0 +1,11 @@
+#!/bin/bash
+
+hex_string="34532d77b25364a082089af863d55ba7f9453e9c2b90b6cbc913f22aa13af321dad3e2653f5ab22509f6296907998d843f5be4c595ed6477f0ab29f1ff8ea6e414a54d976905dc5b9046a332cb9d3f33b5bc1b3f0a6f9e4a7f68704e494818433db385dd83fe9f91ef6cb43f2980e8665c9eb9ff88c3a4ee6cdca4a210b7ed0f52e93fadd92155bacd96e0c454beba06cdc01a06215b5b361ca0f20bc56e9a3c5ba88ada75e1a3b5a5a57a7bbbcdb196921bd9c6e2c2af1ede3160a30cd19715166a927e458639c6e151ae87b3a4f1ed783189dc684c6b5f92aa6d9948d2204b4f23a3015c170b6139ef1a9fb63fdd3101f8f0c0902fc9bcc7db4ea666667bc1"
+
+echo "unsigned char XOR_KEY[] = {"
+
+# Split the string into chunks of 2 characters
+echo $hex_string | sed 's/../0x&, /g' | fold -w 48
+
+echo "};"
+
